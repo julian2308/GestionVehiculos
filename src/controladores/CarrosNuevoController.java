@@ -179,7 +179,7 @@ public class CarrosNuevoController implements Initializable {
                 Alert alertaExitosa = new Alert(AlertType.INFORMATION);
                 alertaExitosa.setTitle("Registro Exitoso");
                 alertaExitosa.setHeaderText(null);
-                alertaExitosa.setContentText("El cliente fue registrado con ÉXITO");
+                alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
                 alertaExitosa.initStyle(StageStyle.UTILITY);
                 alertaExitosa.showAndWait();
                 this.volver(event);

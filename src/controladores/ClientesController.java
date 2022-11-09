@@ -161,7 +161,7 @@ public class ClientesController implements Initializable {
         String cedula = JOptionPane.showInputDialog("Ingrese la cedula del cliente");
 
         if (gestor.existeCedula(cedula)) {
-            int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el auto con placa " + cedula);
+            int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el cliente con cedula " + cedula);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 gestor.eliminarCliente(cedula);
                 System.out.println("Aca esta");
@@ -185,15 +185,6 @@ public class ClientesController implements Initializable {
 
     }
 
-    /*private void mostrarAlertaExitosa() {
-        Alert alertaExitosa = new Alert(Alert.AlertType.INFORMATION);
-        alertaExitosa.setTitle("Carro registado con ÉXITO");
-        alertaExitosa.setHeaderText(null);
-        alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
-        alertaExitosa.initStyle(StageStyle.UTILITY);
-        alertaExitosa.showAndWait();
-
-    }*/
     @FXML
     private void editarCliente(ActionEvent event) {
         String cedula = JOptionPane.showInputDialog("Ingrese la cedula del cliente");

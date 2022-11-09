@@ -141,7 +141,7 @@ public class GestorClientes {
                 Alert alertaExitosa = new Alert(Alert.AlertType.INFORMATION);
                 alertaExitosa.setTitle("Registro Exitoso");
                 alertaExitosa.setHeaderText(null);
-                alertaExitosa.setContentText("El carro fue ELIMINADO con ÉXITO");
+                alertaExitosa.setContentText("El cliente fue ELIMINADO con ÉXITO");
                 alertaExitosa.initStyle(StageStyle.UTILITY);
                 alertaExitosa.showAndWait();
             }

@@ -160,7 +160,7 @@ public class MotosController implements Initializable {
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo");
 
         if (gestor.existePlaca(placa)) {
-            int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el auto con placa " + placa);
+            int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar la moto con placa " + placa);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 gestor.eliminarMoto(placa);
                 System.out.println("Aca esta");
