@@ -206,7 +206,7 @@ public class CarrosController implements Initializable {
                 controlador.editarAtributos(miCarro);
                 
                 stage.showAndWait();
-
+                stage.setResizable(false);
                 
                 Stage stage1 = (Stage) this.btnEditar.getScene().getWindow();
                 stage1.close();
