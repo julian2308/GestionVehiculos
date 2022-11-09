@@ -1,3 +1,2 @@
-23123/juli/Alv/321321/dsadsa/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\Default.png
-12345/21/Duran/4564897/ewqewq/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\Default.png
 1000709172/Julian David/Alvarado/3165673614/test@unisabana.edu/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\Default.png
+1100205/Manuel Eduardo/Gantiva/3165673698/manuel@esc.com/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\MorganFreeman.jpg

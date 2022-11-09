@@ -34,7 +34,7 @@ import negocio.entidades.Moto;
 public class MotosController implements Initializable {
 
     private GestorMotos gestor = new GestorMotos();
-    
+
     @FXML
     private Button btnCrear;
     @FXML
@@ -45,6 +45,8 @@ public class MotosController implements Initializable {
     private Button btnVolver;
     @FXML
     private Button btnBuscar;
+    @FXML
+    private Button btnBuscarTodos;
 
     /**
      * Initializes the controller class.
@@ -66,6 +68,7 @@ public class MotosController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnCrear.getScene().getWindow();
             stage1.close();
@@ -87,6 +90,9 @@ public class MotosController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
+            Stage stage1 = (Stage) this.btnBuscarTodos.getScene().getWindow();
+            stage1.close();
 
         } catch (IOException ex) {
             Logger.getLogger(TodosMotosController.class.getName()).log(Level.SEVERE, null, ex);
@@ -106,7 +112,7 @@ public class MotosController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-
+            stage.setResizable(false);
             Stage stage1 = (Stage) this.btnVolver.getScene().getWindow();
             stage1.close();
 
@@ -128,14 +134,14 @@ public class MotosController implements Initializable {
 
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
+                stage.setResizable(false);
                 stage.initModality(Modality.APPLICATION_MODAL);
 
                 // Pasamos la lista al controlador usando el método implementado
                 MotosNuevoController controlador = (MotosNuevoController) fxmlLoader.getController();
                 controlador.motoExistente(miMoto);
-                
+
                 stage.showAndWait();
                 Stage stage1 = (Stage) this.btnBuscar.getScene().getWindow();
                 stage1.close();
@@ -152,15 +158,14 @@ public class MotosController implements Initializable {
     @FXML
     private void borrarMoto(ActionEvent event) {
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo");
-        
+
         if (gestor.existePlaca(placa)) {
-            int confirmacion = JOptionPane.showConfirmDialog(null,"Está seguro que desea eliminar el auto con placa " + placa);
-            if(confirmacion == JOptionPane.YES_OPTION){
+            int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el auto con placa " + placa);
+            if (confirmacion == JOptionPane.YES_OPTION) {
                 gestor.eliminarMoto(placa);
                 System.out.println("Aca esta");
             }
-            
-            
+
         } else {
             System.out.println("Aca estany");
             this.mostrarAlertaFallida();
@@ -177,19 +182,9 @@ public class MotosController implements Initializable {
         alertaFallida.showAndWait();
 
     }
-    
-    /*private void mostrarAlertaExitosa() {
-        Alert alertaExitosa = new Alert(Alert.AlertType.INFORMATION);
-        alertaExitosa.setTitle("Carro registado con ÉXITO");
-        alertaExitosa.setHeaderText(null);
-        alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
-        alertaExitosa.initStyle(StageStyle.UTILITY);
-        alertaExitosa.showAndWait();
-
-    }*/
 
     @FXML
-    private void editarMoto(ActionEvent event) { 
+    private void editarMoto(ActionEvent event) {
         String placa = JOptionPane.showInputDialog("Ingrese la placa del vehículo");
         if (gestor.existePlaca(placa)) {
 
@@ -200,7 +195,6 @@ public class MotosController implements Initializable {
 
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -208,9 +202,9 @@ public class MotosController implements Initializable {
                 MotosNuevoController controlador = (MotosNuevoController) fxmlLoader.getController();
                 controlador.setInfo(miMoto);
                 controlador.editarAtributos(miMoto);
-                
+
                 stage.showAndWait();
-                
+
                 Stage stage1 = (Stage) this.btnEditar.getScene().getWindow();
                 stage1.close();
 
@@ -222,5 +216,4 @@ public class MotosController implements Initializable {
         }
     }
 
-    
 }

@@ -4,6 +4,7 @@
  */
 package controladores;
 
+import static java.awt.SystemColor.window;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -37,6 +39,8 @@ public class IndexController implements Initializable {
     private Button btnAlquilerCarros;
     @FXML
     private Button btnAlquilerMotos;
+    @FXML
+    private Button btnSalir;
 
     /**
      * Initializes the controller class.
@@ -58,7 +62,7 @@ public class IndexController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
-
+            stage.setResizable(false);
             Stage stage1 = (Stage) this.btnGestionCarros.getScene().getWindow();
             stage1.close();
 
@@ -81,6 +85,7 @@ public class IndexController implements Initializable {
             stage.setScene(scene);
             stage.show();
 
+            stage.setResizable(false);
             Stage stage1 = (Stage) this.btnGestionMotos.getScene().getWindow();
             stage1.close();
 
@@ -103,6 +108,7 @@ public class IndexController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnGestionClientes.getScene().getWindow();
             stage1.close();
@@ -129,6 +135,7 @@ public class IndexController implements Initializable {
 
             Stage stage1 = (Stage) this.btnAlquilerCarros.getScene().getWindow();
             stage1.close();
+            stage.setResizable(false);
 
         } catch (IOException ex) {
             Logger.getLogger(TodosCarrosController.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,10 +159,19 @@ public class IndexController implements Initializable {
 
             Stage stage1 = (Stage) this.btnAlquilerMotos.getScene().getWindow();
             stage1.close();
+            stage.setResizable(false);
 
         } catch (IOException ex) {
             Logger.getLogger(TodosCarrosController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void exit(ActionEvent event) {
+
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 }

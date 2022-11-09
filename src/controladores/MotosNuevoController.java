@@ -94,8 +94,8 @@ public class MotosNuevoController implements Initializable {
         ArrayList<String> lineas0 = (ArrayList<String>) misLineas.get(0);
         ArrayList<String> lineas1 = (ArrayList<String>) misLineas.get(1);
         ArrayList<String> lineas2 = (ArrayList<String>) misLineas.get(2);
-        ArrayList<String> lineas3 = (ArrayList<String>) misLineas.get(3);
-        ArrayList<String> lineas4 = (ArrayList<String>) misLineas.get(4);
+
+
 
         this.cbMarca.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
 
@@ -111,10 +111,6 @@ public class MotosNuevoController implements Initializable {
                         cbLinea.setItems(FXCollections.observableArrayList(lineas1));
                     case 2 ->
                         cbLinea.setItems(FXCollections.observableArrayList(lineas2));
-                    case 3 ->
-                        cbLinea.setItems(FXCollections.observableArrayList(lineas3));
-                    case 4 ->
-                        cbLinea.setItems(FXCollections.observableArrayList(lineas4));
                     default -> {
                     }
 
@@ -181,12 +177,11 @@ public class MotosNuevoController implements Initializable {
                 Alert alertaExitosa = new Alert(Alert.AlertType.INFORMATION);
                 alertaExitosa.setTitle("Registro Exitoso");
                 alertaExitosa.setHeaderText(null);
-                alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
+                alertaExitosa.setContentText("La moto fue registrada con ÉXITO");
                 alertaExitosa.initStyle(StageStyle.UTILITY);
                 alertaExitosa.showAndWait();
                 this.volver(event);
                 if (this.info == null) {
-                    System.out.println("Es null");
                 } else {
                     this.gestorMotos.editarMoto(this.info.getPlaca());
                 }
@@ -221,6 +216,7 @@ public class MotosNuevoController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnCancelar.getScene().getWindow();
             stage1.close();

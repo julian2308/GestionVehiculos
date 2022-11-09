@@ -88,6 +88,7 @@ public class ClienteAlquilaController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnContinuar.getScene().getWindow();
             stage1.close();

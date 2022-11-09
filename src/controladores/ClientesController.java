@@ -70,6 +70,7 @@ public class ClientesController implements Initializable {
 
             Stage stage1 = (Stage) this.btnCrear.getScene().getWindow();
             stage1.close();
+            stage.setResizable(false);
 
         } catch (IOException ex) {
             Logger.getLogger(ClientesNuevoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,6 +89,9 @@ public class ClientesController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
+            Stage stage1 = (Stage) this.btnBuscarTodos.getScene().getWindow();
+            stage1.close();
 
         } catch (IOException ex) {
             Logger.getLogger(TodosClientesController.class.getName()).log(Level.SEVERE, null, ex);
@@ -107,6 +111,7 @@ public class ClientesController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnVolver.getScene().getWindow();
             stage1.close();
@@ -129,9 +134,9 @@ public class ClientesController implements Initializable {
 
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setResizable(false);
 
                 // Pasamos la lista al controlador usando el método implementado
                 ClientesNuevoController controlador = (ClientesNuevoController) fxmlLoader.getController();
@@ -198,10 +203,8 @@ public class ClientesController implements Initializable {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/vista/clientesNuevo.fxml"));
-
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -210,6 +213,7 @@ public class ClientesController implements Initializable {
                 controlador.setInfo(miCliente);
                 controlador.editarAtributos(miCliente);
                 stage.showAndWait();
+                stage.setResizable(false);
 
                 Stage stage1 = (Stage) this.btnCrear.getScene().getWindow();
                 stage1.close();

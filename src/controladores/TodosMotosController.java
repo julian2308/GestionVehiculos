@@ -58,6 +58,8 @@ public class TodosMotosController implements Initializable {
     private TableColumn<Moto, String> alquilado;
     @FXML
     private Button btnContinuar;
+    @FXML
+    private Button btnCancelar;
 
 
     /**
@@ -86,17 +88,7 @@ public class TodosMotosController implements Initializable {
     
     @FXML
     private void continuar(ActionEvent event) {
-        /*Carro carrito = new Carro();
-        
-        List<List<String>> arrList = new ArrayList();
-        
-        for(int i =0; i<tablaCarros.getItems().size(); i++){
-            carrito = tablaCarros.getItems().get(i);
-            arrList.add(new ArrayList<>());
-            arrList.get(i).add(carrito.getPlaca());
-            arrList.get(i).add(carrito.isEstaAlquilado());
-        }
-         */
+
 
         ObservableList<Moto> motitos;
         motitos = tablaCarros.getSelectionModel().getSelectedItems();
@@ -116,6 +108,7 @@ public class TodosMotosController implements Initializable {
                 //stage.initModality(Modality.APPLICATION_MODAL);
                 stage.setScene(scene);
                 stage.show();
+                stage.setResizable(false);
 
                 Stage stage1 = (Stage) this.btnContinuar.getScene().getWindow();
                 stage1.close();
@@ -131,5 +124,27 @@ public class TodosMotosController implements Initializable {
             alertaFallida.initStyle(StageStyle.UTILITY);
             alertaFallida.showAndWait();
         }
+    }
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/motos.fxml"));
+            Parent root = loader.load();
+            MotosController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnCancelar.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteAlquilaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 }

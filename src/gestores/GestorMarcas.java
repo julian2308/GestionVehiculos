@@ -45,7 +45,7 @@ public class GestorMarcas {
             pw.println(marcaNueva.toString());
             pw.close();
         } catch (IOException var5) {
-            System.out.println("No se pudo cargar el carro. Intente de nuevo");
+            System.out.println("No se pudo cargar la marca. Intente de nuevo");
         }
         
     }
@@ -66,13 +66,9 @@ public class GestorMarcas {
                 String[] campos = lineas.split("/");
                 for(int i=1; i<campos.length; i++){
                     lineasMarca.add(campos[i]);
-                    //System.out.println(i);
-                }
-                /*for(String lineaActual : campos){
-                    System.out.println(lineaActual);
-                }*/
 
-                //System.out.println(lineasMarca + " estas son mis lineas");
+                }
+
                 marcaInstanciada = new Marca(campos[0], lineasMarca);
 
          
@@ -82,7 +78,7 @@ public class GestorMarcas {
         }
 
         catch(IOException ex){
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda marca...");
         }
     
    
@@ -124,13 +120,9 @@ public class GestorMarcas {
                 String[] campos = lineas.split("/");
                 for(int i=1; i<campos.length; i++){
                     lineasMarca.add(campos[i]);
-                    //System.out.println(i);
-                }
-                /*for(String lineaActual : campos){
-                    System.out.println(lineaActual);
-                }*/
 
-                //System.out.println(lineasMarca + " estas son mis lineas");
+                }
+
                 marcaInstanciada = new Marca(campos[0], lineasMarca);
 
          
@@ -140,7 +132,7 @@ public class GestorMarcas {
         }
 
         catch(IOException ex){
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda marca...");
         }
     
    

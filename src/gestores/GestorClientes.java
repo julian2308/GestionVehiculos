@@ -40,7 +40,7 @@ public class GestorClientes {
             pw.println(clienteNuevo.toString());
             pw.close();
         } catch (IOException var5) {
-            System.out.println("No se pudo cargar el carro. Intente de nuevo");
+            System.out.println("No se pudo cargar el cliente. Intente de nuevo");
         }
 
     }
@@ -59,10 +59,6 @@ public class GestorClientes {
             while((lineas = br.readLine()) != null){
                 String[] campos = lineas.split("/");
              
-                for(int i=0; i < campos.length; i++){
-                   System.out.println(campos[i] + " " + i); 
-                }
-                System.out.println("aca muere");
                 miClientito = new Cliente(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5]);
                 
                 clientes.add(miClientito);
@@ -70,7 +66,7 @@ public class GestorClientes {
         }
 
         catch(IOException ex){
-            System.out.println("Fallo busqueda carro...");
+            System.out.println("Fallo busqueda cliente...");
         }
         
         return clientes;
@@ -86,15 +82,13 @@ public class GestorClientes {
             br = new BufferedReader(archivo);
             while ((registro = br.readLine()) != null) {
                 String[] campos = registro.split("/");
-                System.out.println(campos[0] + "aaaaaaaaa");
-                //System.out.println(campos[7] + "bbbbbbb");
                 if (campos[0].equals(code)) {
                     clienteInstanciado = new Cliente(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5]);
                     break;
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda cliente...");
         }
         return clienteInstanciado;
     }
@@ -114,7 +108,7 @@ public class GestorClientes {
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda cliente...");
         }
 
         return existe;

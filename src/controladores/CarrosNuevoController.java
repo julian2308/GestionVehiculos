@@ -36,7 +36,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.swing.JFileChooser;
 import negocio.entidades.Carro;
 import negocio.entidades.Marca;
 
@@ -162,8 +161,6 @@ public class CarrosNuevoController implements Initializable {
         if (!this.verificarValidaciones()) {
 
             String placa = tfPlaca.getText();
-            Carro comparar = this.gestorCarros.devolverCarro(placa);
-            if (comparar == null) {
 
                 String linea = cbLinea.getValue();
                 String marca = cbMarca.getValue();
@@ -182,7 +179,7 @@ public class CarrosNuevoController implements Initializable {
                 Alert alertaExitosa = new Alert(AlertType.INFORMATION);
                 alertaExitosa.setTitle("Registro Exitoso");
                 alertaExitosa.setHeaderText(null);
-                alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
+                alertaExitosa.setContentText("El cliente fue registrado con ÉXITO");
                 alertaExitosa.initStyle(StageStyle.UTILITY);
                 alertaExitosa.showAndWait();
                 this.volver(event);
@@ -192,26 +189,11 @@ public class CarrosNuevoController implements Initializable {
                     this.gestorCarros.editarCarro(this.info.getPlaca());
                 }
 
-            } else {
-                Alert alertaExitosa = new Alert(AlertType.ERROR);
-                alertaExitosa.setTitle("Ya existe eso");
-                alertaExitosa.setHeaderText(null);
-                alertaExitosa.setContentText("Ya existe un carro con esa placa");
-                alertaExitosa.initStyle(StageStyle.UTILITY);
-                alertaExitosa.showAndWait();
-                
-            }
+
 
         } else {
             System.out.println("Esta mal");
         }
-
-        /*if(this.info.getClass().getSimpleName()){
-            this.gestorCarros.eliminarCarro(placa);
-        } else {
-            System.out.println("no hat info");
-        }*/
-        //ObservableList aca = this.lineasBoton();
     }
 
     @FXML
@@ -230,6 +212,7 @@ public class CarrosNuevoController implements Initializable {
 
             Stage stage1 = (Stage) this.btnCancelar.getScene().getWindow();
             stage1.close();
+            stage.setResizable(false);
 
         } catch (IOException ex) {
             Logger.getLogger(CarrosController.class.getName()).log(Level.SEVERE, null, ex);

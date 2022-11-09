@@ -20,8 +20,9 @@ public class Start extends Application{
         Scene scene = new Scene(root);
         
         ventana.setScene(scene);
-        ventana.setTitle("Prueba 1");
+        ventana.setTitle("RENTAR DE VEHICULOS");
         ventana.setResizable(false);
+        ventana.setOnCloseRequest(event->{event.consume();});
         ventana.show();
     }
     

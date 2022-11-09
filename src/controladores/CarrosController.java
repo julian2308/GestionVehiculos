@@ -43,6 +43,8 @@ public class CarrosController implements Initializable {
     private Button btnEditar;
     @FXML
     private Button btnBuscar;
+    @FXML
+    private Button btnBuscarTodos;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,6 +66,7 @@ public class CarrosController implements Initializable {
 
             Stage stage1 = (Stage) this.btnCrear.getScene().getWindow();
             stage1.close();
+            stage.setResizable(false);
 
         } catch (IOException ex) {
             Logger.getLogger(CarrosNuevoController.class.getName()).log(Level.SEVERE, null, ex);
@@ -82,6 +85,11 @@ public class CarrosController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
+            
+            Stage stage1 = (Stage) this.btnBuscarTodos.getScene().getWindow();
+            stage1.close();
+
 
         } catch (IOException ex) {
             Logger.getLogger(TodosCarrosController.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,6 +109,7 @@ public class CarrosController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnVolver.getScene().getWindow();
             stage1.close();
@@ -123,9 +132,9 @@ public class CarrosController implements Initializable {
 
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
+                stage.setResizable(false);
 
                 // Pasamos la lista al controlador usando el método implementado
                 CarrosNuevoController controlador = (CarrosNuevoController) fxmlLoader.getController();
@@ -196,7 +205,6 @@ public class CarrosController implements Initializable {
 
                 Scene scene = new Scene(fxmlLoader.load());
                 Stage stage = new Stage();
-                stage.setTitle("Hola");
                 stage.setScene(scene);
                 stage.initModality(Modality.APPLICATION_MODAL);
 
@@ -204,6 +212,7 @@ public class CarrosController implements Initializable {
                 CarrosNuevoController controlador = (CarrosNuevoController) fxmlLoader.getController();
                 controlador.setInfo(miCarro);
                 controlador.editarAtributos(miCarro);
+                stage.setResizable(false);
                 
                 stage.showAndWait();
                 stage.setResizable(false);

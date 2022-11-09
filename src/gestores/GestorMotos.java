@@ -62,13 +62,12 @@ public class GestorMotos {
                 for (int i = 0; i < campos.length; i++) {
                     System.out.println(campos[i] + " " + i);
                 }
-                System.out.println("aca muere");
                 miMotito = new Moto(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
 
                 motitos.add(miMotito);
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda carro...");
+            System.out.println("Fallo busqueda moto...");
         }
 
         return motitos;
@@ -84,15 +83,13 @@ public class GestorMotos {
             br = new BufferedReader(archivo);
             while ((registro = br.readLine()) != null) {
                 String[] campos = registro.split("/");
-                System.out.println(campos[0] + "aaaaaaaaa");
-                //System.out.println(campos[7] + "bbbbbbb");
                 if (campos[0].equals(code)) {
                     motoInstanciado = new Moto(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
                     break;
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda moto...");
         }
         return motoInstanciado;
     }

@@ -6,16 +6,25 @@ package controladores;
 
 import gestores.GestorCarros;
 import gestores.GestorClientes;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import negocio.entidades.Carro;
 import negocio.entidades.Cliente;
 
@@ -40,6 +49,8 @@ public class TodosClientesController implements Initializable {
     private TableColumn<Cliente, String> telefono;
     @FXML
     private TableColumn<Cliente, String> email;
+    @FXML
+    private Button btnCancelar;
 
     /**
      * Initializes the controller class.
@@ -58,5 +69,27 @@ public class TodosClientesController implements Initializable {
 
            this.tablaClientes.setItems(listaClientes);
     }    
+
+    @FXML
+    private void cancelar(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/clientes.fxml"));
+            Parent root = loader.load();
+            ClientesController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setResizable(false);
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnCancelar.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(ClienteAlquilaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
     
 }

@@ -123,6 +123,7 @@ public class ClientesNuevoController implements Initializable {
             //stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
+            stage.setResizable(false);
 
             Stage stage1 = (Stage) this.btnCancelar.getScene().getWindow();
             stage1.close();

@@ -54,21 +54,11 @@ public class GestorCarros {
         FileReader archivo;
         BufferedReader br;
         String lineas;
-
-        /*miCarrito = new Carro("campos[0]", "campos[1]", "campos[2]", "ampos[3]", "campos[4]", "campos[5]", "campos[6]", "campos[7]");
-        Carro miCarrito1 = new Carro("campos[0]", "campos[1]", "campos[2]", "ampos[3]", "campos[4]", "campos[5]", "campos[6]", "campos[7]");
-        carritos.add(miCarrito);
-        carritos.add(miCarrito1);*/
         try {
             archivo = new FileReader(this.ruta);
             br = new BufferedReader(archivo);
             while ((lineas = br.readLine()) != null) {
                 String[] campos = lineas.split("/");
-
-                for (int i = 0; i < campos.length; i++) {
-                    System.out.println(campos[i] + " " + i);
-                }
-                System.out.println("aca muere");
                 miCarrito3 = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
                 System.out.println(miCarrito3.toString() + " MI CARRITO");
                 carritos.add(miCarrito3);
@@ -90,15 +80,13 @@ public class GestorCarros {
             br = new BufferedReader(archivo);
             while ((registro = br.readLine()) != null) {
                 String[] campos = registro.split("/");
-                System.out.println(campos[0] + "aaaaaaaaa");
-                //System.out.println(campos[7] + "bbbbbbb");
                 if (campos[0].equals(code)) {
                     carroInstanciado = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
                     break;
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda carro...");
         }
         return carroInstanciado;
     }
@@ -118,7 +106,7 @@ public class GestorCarros {
                 }
             }
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda carro...");
         }
 
         return existe;
