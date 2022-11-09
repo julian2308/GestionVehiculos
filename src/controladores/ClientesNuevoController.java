@@ -100,13 +100,13 @@ public class ClientesNuevoController implements Initializable {
             alertaExitosa.showAndWait();
             this.volver(event);
             if (this.info == null) {
-                System.out.println("Es null");
+
             } else {
                 this.gestorClientes.editarCliente(this.info.getCedula());
             }
 
         } else {
-            System.out.println("Esta mal");
+
         }
     }
 
@@ -194,7 +194,7 @@ public class ClientesNuevoController implements Initializable {
 
     private boolean verificarValidaciones() {
         boolean hayError = false;
-        //System.out.println(this.tfCedula.getText().matches("[A-Z]{3}[ ][0-9]{3}") + " ACAAAAAAAAA");
+
 
         if (!this.tfEmail.getText().matches("[-\\w\\.]+@\\w+\\.\\w+")) {
             hayError = true;

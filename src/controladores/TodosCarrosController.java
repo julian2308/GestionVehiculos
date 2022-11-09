@@ -75,7 +75,6 @@ public class TodosCarrosController implements Initializable {
 
         ArrayList<Carro> misCarros = this.gestor.obtenerCarros();
         Carro miCarro = misCarros.get(0);
-        System.out.println(miCarro);
 
         ObservableList<Carro> listaCarros = FXCollections.observableArrayList(misCarros);
 
@@ -91,9 +90,9 @@ public class TodosCarrosController implements Initializable {
         ObservableList<Carro> carritos;
         carritos = tablaCarros.getSelectionModel().getSelectedItems();
 
-        System.out.println(carritos.get(0).isEstaAlquilado());
+
         if (carritos.get(0).isEstaAlquilado().equals("No")) {
-            System.out.println("alquilable");
+
             carritos.get(0).setEstaAlquilado("Si");
             gestor.alquilarCarro(carritos.get(0).getPlaca());
 

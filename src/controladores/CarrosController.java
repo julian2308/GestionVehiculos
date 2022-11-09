@@ -162,12 +162,12 @@ public class CarrosController implements Initializable {
             int confirmacion = JOptionPane.showConfirmDialog(null,"Está seguro que desea eliminar el auto con placa " + placa);
             if(confirmacion == JOptionPane.YES_OPTION){
                 gestor.eliminarCarro(placa);
-                System.out.println("Aca esta");
+
             }
             
             
         } else {
-            System.out.println("Aca estany");
+
             this.mostrarAlertaFallida();
         }
 

@@ -164,12 +164,12 @@ public class ClientesController implements Initializable {
             int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar el cliente con cedula " + cedula);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 gestor.eliminarCliente(cedula);
-                System.out.println("Aca esta");
+
 
             }
 
         } else {
-            System.out.println("Aca estany");
+
             this.mostrarAlertaFallida();
         }
 

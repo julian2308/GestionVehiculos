@@ -133,8 +133,7 @@ public class MotosNuevoController implements Initializable {
     private void getMarcas(ActionEvent event) {
 
         ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcasMotos();
-        /*System.out.println(marcas.size() + " aca");
-        this.misMarcas = marcas;*/
+
 
         ArrayList<String> nombresMarcas = new ArrayList<>();
         List<List<String>> listaLineas = new ArrayList<>();
@@ -142,13 +141,12 @@ public class MotosNuevoController implements Initializable {
         for (int i = 0; i < marcasObtenidas.size(); i++) {
             Marca xd = (Marca) marcasObtenidas.get(i);
             nombresMarcas.add(xd.getMarca());
-            System.out.println(xd.getMarca() + "aqui");
+
             listaLineas.add(xd.getLineas());
-            System.out.println(xd.getLineas() + "aqui lineas");
+
         }
 
-        System.out.println(nombresMarcas.toString());
-        System.out.println(listaLineas.toString());
+
     }
 
     @FXML
@@ -192,15 +190,9 @@ public class MotosNuevoController implements Initializable {
             
 
         } else {
-            System.out.println("Esta mal");
+
         }
 
-        /*if(this.info.getClass().getSimpleName()){
-            this.gestorCarros.eliminarCarro(placa);
-        } else {
-            System.out.println("no hat info");
-        }*/
-        //ObservableList aca = this.lineasBoton();
     }
 
     @FXML
@@ -305,7 +297,7 @@ public class MotosNuevoController implements Initializable {
         if (imgFile != null) {
             Image image = new Image("file:" + imgFile.getAbsolutePath());
             this.rutaImagen = imgFile.getAbsolutePath();
-            System.out.println(imgFile.getAbsolutePath());
+
             this.rutaImagen = imgFile.getAbsolutePath();
             this.imagen.setImage(image);
         }
@@ -362,7 +354,7 @@ public class MotosNuevoController implements Initializable {
 
     private boolean verificarValidaciones() {
         boolean hayError = false;
-        //System.out.println(this.tfPlaca.getText().matches("[A-Z]{3}[ ][0-9]{3}") + " ACAAAAAAAAA");
+
 
         if (this.tfAlquiler.getText().isEmpty()) {
             hayError = true;
@@ -393,7 +385,6 @@ public class MotosNuevoController implements Initializable {
             this.tfPlaca.requestFocus();
         }
 
-        System.out.println(this.tfAlquiler.getText().isEmpty() + "vacio");
 
         return hayError;
     } 

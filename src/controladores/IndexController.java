@@ -74,7 +74,7 @@ public class IndexController implements Initializable {
     @FXML
     private void gestionMotos(ActionEvent event) {
 
-        System.out.println("llegamos a motos");
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/motos.fxml"));
             Parent root = loader.load();
@@ -98,7 +98,7 @@ public class IndexController implements Initializable {
     @FXML
     private void gestionClientes(ActionEvent event) {
 
-        System.out.println("llegamos a clientes");
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/clientes.fxml"));
             Parent root = loader.load();

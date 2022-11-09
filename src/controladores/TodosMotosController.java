@@ -78,7 +78,7 @@ public class TodosMotosController implements Initializable {
 
         ArrayList<Moto> misMotos = this.gestor.obtenerMotos();
         Moto miCarro = misMotos.get(0);
-        System.out.println(miCarro);
+
 
         ObservableList<Moto> listaMotos = FXCollections.observableArrayList(misMotos);
 
@@ -93,9 +93,7 @@ public class TodosMotosController implements Initializable {
         ObservableList<Moto> motitos;
         motitos = tablaCarros.getSelectionModel().getSelectedItems();
 
-        System.out.println(motitos.get(0).isEstaAlquilado());
         if (motitos.get(0).isEstaAlquilado().equals("No")) {
-            System.out.println("alquilable");
             motitos.get(0).setEstaAlquilado("Si");
             gestor.alquilarMoto(motitos.get(0).getPlaca());
 

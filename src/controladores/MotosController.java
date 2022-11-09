@@ -163,11 +163,11 @@ public class MotosController implements Initializable {
             int confirmacion = JOptionPane.showConfirmDialog(null, "Está seguro que desea eliminar la moto con placa " + placa);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 gestor.eliminarMoto(placa);
-                System.out.println("Aca esta");
+
             }
 
         } else {
-            System.out.println("Aca estany");
+
             this.mostrarAlertaFallida();
         }
 
