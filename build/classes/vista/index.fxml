@@ -23,22 +23,22 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <Button layoutX="386.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Carros">
+      <Button fx:id="btnAlquilerCarros" layoutX="386.0" layoutY="122.0" mnemonicParsing="false" onAction="#irTodosCarros" prefHeight="25.0" prefWidth="130.0" text="Carros">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="386.0" layoutY="182.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Carros">
+      <Button fx:id="btnAlquilerMotos" layoutX="386.0" layoutY="182.0" mnemonicParsing="false" onAction="#alquilerMotos" prefHeight="25.0" prefWidth="130.0" text="Motos">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="89.0" layoutY="182.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Moto">
+      <Button fx:id="btnGestionMotos" layoutX="89.0" layoutY="182.0" mnemonicParsing="false" onAction="#gestionMotos" prefHeight="25.0" prefWidth="130.0" text="Motos">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="89.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="130.0" text="Cliente">
+      <Button fx:id="btnGestionClientes" layoutX="89.0" layoutY="247.0" mnemonicParsing="false" onAction="#gestionClientes" prefHeight="25.0" prefWidth="130.0" text="Clientes">
          <font>
             <Font name="Arial Bold" size="20.0" />
          </font>

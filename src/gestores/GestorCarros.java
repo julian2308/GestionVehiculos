@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import javafx.scene.control.Alert;
 import javafx.stage.StageStyle;
+import javax.swing.JOptionPane;
 import negocio.entidades.Carro;
 import negocio.entidades.Marca;
 
@@ -24,9 +25,8 @@ public class GestorCarros {
 
     private final String ruta = "./src/basesDeDatos/dbCarros.txt";
 
-    public void anadirCarro(String placa, String marca, String modelo, String linea, String color, String valorAlquiler, String estaAlquilado) {
-
-        Carro carroNuevo = new Carro(placa, marca, modelo, linea, color, valorAlquiler, estaAlquilado);
+    public void anadirCarro(String placa, String marca, String modelo, String linea, String color, String valorAlquiler, String estaAlquilado, String imagenPath) {
+        Carro carroNuevo = new Carro(placa, marca, modelo, linea, color, valorAlquiler, estaAlquilado, imagenPath);
         this.guardarCarro(carroNuevo);
 
     }
@@ -37,6 +37,7 @@ public class GestorCarros {
             File archivo = new File("./src/basesDeDatos/dbCarros.txt");
             FileWriter wr = new FileWriter(archivo, true);
             PrintWriter pw = new PrintWriter(wr);
+            System.out.println(carroNuevo.toString());
             pw.println(carroNuevo.toString());
             pw.close();
         } catch (IOException var5) {
@@ -47,33 +48,36 @@ public class GestorCarros {
 
     public ArrayList<Carro> obtenerCarros() {
 
-        ArrayList<Carro> carrosExistentes = new ArrayList<>();
-        Carro carroInstanciado;
+        ArrayList<Carro> carritos = new ArrayList<>();
+        Carro miCarrito;
+        Carro miCarrito3;
         FileReader archivo;
         BufferedReader br;
         String lineas;
 
+        /*miCarrito = new Carro("campos[0]", "campos[1]", "campos[2]", "ampos[3]", "campos[4]", "campos[5]", "campos[6]", "campos[7]");
+        Carro miCarrito1 = new Carro("campos[0]", "campos[1]", "campos[2]", "ampos[3]", "campos[4]", "campos[5]", "campos[6]", "campos[7]");
+        carritos.add(miCarrito);
+        carritos.add(miCarrito1);*/
         try {
             archivo = new FileReader(this.ruta);
             br = new BufferedReader(archivo);
             while ((lineas = br.readLine()) != null) {
                 String[] campos = lineas.split("/");
-                /*for(String lineaActual : campos){
-                    System.out.println(lineaActual);
-                }*/
 
-                //System.out.println(lineasMarca + " estas son mis lineas");
-                carroInstanciado = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
-
-                carrosExistentes.add(carroInstanciado);
+                for (int i = 0; i < campos.length; i++) {
+                    System.out.println(campos[i] + " " + i);
+                }
+                System.out.println("aca muere");
+                miCarrito3 = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
+                System.out.println(miCarrito3.toString() + " MI CARRITO");
+                carritos.add(miCarrito3);
             }
-
         } catch (IOException ex) {
-            System.out.println("Fallo busqueda estudiante...");
+            System.out.println("Fallo busqueda carro...");
         }
 
-        return carrosExistentes;
-
+        return carritos;
     }
 
     public Carro devolverCarro(String code) {
@@ -86,8 +90,10 @@ public class GestorCarros {
             br = new BufferedReader(archivo);
             while ((registro = br.readLine()) != null) {
                 String[] campos = registro.split("/");
+                System.out.println(campos[0] + "aaaaaaaaa");
+                //System.out.println(campos[7] + "bbbbbbb");
                 if (campos[0].equals(code)) {
-                    carroInstanciado = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6]);
+                    carroInstanciado = new Carro(campos[0], campos[1], campos[2], campos[3], campos[4], campos[5], campos[6], campos[7]);
                     break;
                 }
             }
@@ -161,6 +167,23 @@ public class GestorCarros {
             if (carrito.getPlaca().equals(placa)) {
                 carros.remove(carrito);
                 this.reemplazarArchivo(carros);
+            }
+        }
+
+    }
+
+    public void alquilarCarro(String placa) {
+        ArrayList<Carro> carros;
+        Carro carrito = this.devolverCarro(placa);
+
+        if (carrito != null) {
+            carros = this.obtenerCarros();
+            for (Carro miCarro : carros) {
+                if (miCarro.getPlaca().equals(carrito.getPlaca())) {
+                    miCarro.setEstaAlquilado("Si");
+                    this.reemplazarArchivo(carros);
+                    
+                }
             }
         }
 

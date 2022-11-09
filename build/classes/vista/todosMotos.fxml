@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="216.0" prefWidth="529.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TodosMotosController">
+    <children>
+      <TableView fx:id="tablaCarros" prefHeight="192.0" prefWidth="529.0">
+        <columns>
+          <TableColumn fx:id="placa" prefWidth="75.0" text="Placa" />
+          <TableColumn fx:id="marca" prefWidth="75.0" text="Marca" />
+            <TableColumn fx:id="linea" prefWidth="75.0" text="Linea" />
+            <TableColumn fx:id="modelo" prefWidth="75.0" text="Modelo" />
+            <TableColumn fx:id="color" prefWidth="75.0" text="Color" />
+            <TableColumn fx:id="alquiler" prefWidth="75.0" text="Alquiler" />
+            <TableColumn fx:id="alquilado" prefWidth="75.0" text="Alquilado" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnContinuar" layoutX="425.0" layoutY="192.0" mnemonicParsing="false" onAction="#continuar" prefHeight="25.0" prefWidth="104.0" text="Continuar" />
+   </children>
+</AnchorPane>

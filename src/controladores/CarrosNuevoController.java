@@ -32,6 +32,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -62,6 +63,8 @@ public class CarrosNuevoController implements Initializable {
     private Button btnCancelar;
 
     private Carro info = null;
+
+    private String rutaImagen = null;
 
     @FXML
     private Button btnGuardar;
@@ -122,27 +125,9 @@ public class CarrosNuevoController implements Initializable {
         });
 
         //acaaaaaaa
-        btnBuscar.setOnAction(event -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Buscar Imagen");
-
-            // Agregar filtros para facilitar la busqueda
-            fileChooser.getExtensionFilters().addAll(
-                    new FileChooser.ExtensionFilter("All Images", "*.*"),
-                    new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                    new FileChooser.ExtensionFilter("PNG", "*.png")
-            );
-
-            // Obtener la imagen seleccionada
-            File imgFile = fileChooser.showOpenDialog(null);
-
-            // Mostar la imagen
-            if (imgFile != null) {
-                Image image = new Image("file:" + imgFile.getAbsolutePath());
-                imagen.setImage(image);
-            }
-        });
-
+        /*btnBuscar.setOnAction(event -> {
+            
+        });*/
     }
 
     private void llamarMarcas() {
@@ -152,7 +137,7 @@ public class CarrosNuevoController implements Initializable {
 
     private void getMarcas(ActionEvent event) {
 
-        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcas();
+        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcasCarros();
         /*System.out.println(marcas.size() + " aca");
         this.misMarcas = marcas;*/
 
@@ -174,27 +159,51 @@ public class CarrosNuevoController implements Initializable {
     @FXML
     private void guardarCarroNuevo(ActionEvent event) {
 
-        String placa = tfPlaca.getText();
-        String linea = cbLinea.getValue();
-        String marca = cbMarca.getValue();
-        String modelo = cbModelo.getValue();
-        String color = cbColor.getValue();
-        String valorAlquiler = tfAlquiler.getText();
+        if (!this.verificarValidaciones()) {
 
-        this.gestorCarros.anadirCarro(placa, marca, linea, modelo, color, valorAlquiler, "Si");
-        ObservableList salu2 = this.marcasBoton();
-        this.cbMarca.setItems(salu2);
-        Alert alertaExitosa = new Alert(AlertType.INFORMATION);
-        alertaExitosa.setTitle("Registro Exitoso");
-        alertaExitosa.setHeaderText(null);
-        alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
-        alertaExitosa.initStyle(StageStyle.UTILITY);
-        alertaExitosa.showAndWait();
-        this.volver(event);
-        if (this.info == null) {
-            System.out.println("Es null");
+            String placa = tfPlaca.getText();
+            Carro comparar = this.gestorCarros.devolverCarro(placa);
+            if (comparar == null) {
+
+                String linea = cbLinea.getValue();
+                String marca = cbMarca.getValue();
+                String modelo = cbModelo.getValue();
+                String color = cbColor.getValue();
+                String valorAlquiler = tfAlquiler.getText();
+
+                String imagenPath = "D:\\NetBeansProjects\\AdminVehiculos\\src\\archivos\\imagenesCarros\\Default.jpg";
+                if (this.rutaImagen != null) {
+                    imagenPath = this.rutaImagen;
+                }
+                
+                this.gestorCarros.anadirCarro(placa, marca, linea, modelo, color, valorAlquiler, "No", imagenPath);
+                ObservableList salu2 = this.marcasBoton();
+                this.cbMarca.setItems(salu2);
+                Alert alertaExitosa = new Alert(AlertType.INFORMATION);
+                alertaExitosa.setTitle("Registro Exitoso");
+                alertaExitosa.setHeaderText(null);
+                alertaExitosa.setContentText("El carro fue registrado con ÉXITO");
+                alertaExitosa.initStyle(StageStyle.UTILITY);
+                alertaExitosa.showAndWait();
+                this.volver(event);
+                if (this.info == null) {
+                    System.out.println("Es null");
+                } else {
+                    this.gestorCarros.editarCarro(this.info.getPlaca());
+                }
+
+            } else {
+                Alert alertaExitosa = new Alert(AlertType.ERROR);
+                alertaExitosa.setTitle("Ya existe eso");
+                alertaExitosa.setHeaderText(null);
+                alertaExitosa.setContentText("Ya existe un carro con esa placa");
+                alertaExitosa.initStyle(StageStyle.UTILITY);
+                alertaExitosa.showAndWait();
+                
+            }
+
         } else {
-            this.gestorCarros.editarCarro(this.info.getPlaca());
+            System.out.println("Esta mal");
         }
 
         /*if(this.info.getClass().getSimpleName()){
@@ -233,7 +242,7 @@ public class CarrosNuevoController implements Initializable {
 
     //Métodos propios
     private ObservableList marcasBoton() {
-        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcas();
+        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcasCarros();
 
         ObservableList misNombresMarcas = FXCollections.observableArrayList();
         for (int i = 0; i < marcasObtenidas.size(); i++) {
@@ -245,7 +254,7 @@ public class CarrosNuevoController implements Initializable {
     }
 
     private ArrayList lineasBoton() {
-        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcas();
+        ArrayList marcasObtenidas = this.gestorMarcas.obtenerMarcasCarros();
         ArrayList misNombresLineas = new ArrayList();
         for (int i = 0; i < marcasObtenidas.size(); i++) {
             Marca xd = (Marca) marcasObtenidas.get(i);
@@ -270,42 +279,132 @@ public class CarrosNuevoController implements Initializable {
         this.tfAlquiler.setText(miCarro.getValorAlquiler());
         this.tfAlquiler.setEditable(false);
         this.btnGuardar.setDisable(true);
+        Image image = new Image("file:" + miCarro.getImagen());
+        this.imagen.setImage(image);
     }
 
     public void editarAtributos(Carro miCarro) {
+
         this.tfPlaca.setText(miCarro.getPlaca());
         this.cbMarca.setValue(miCarro.getMarca());
         this.cbModelo.setValue(miCarro.getModelo());
         this.cbLinea.setValue(miCarro.getLinea());
         this.cbColor.setValue(miCarro.getColor());
         this.tfAlquiler.setText(miCarro.getValorAlquiler());
+        Image image = new Image("file:" + miCarro.getImagen());
+        this.imagen.setImage(image);
 
     }
 
-    /*@FXML
+    @FXML
     private void buscarImagen(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Buscar Imagen");
 
-        JFileChooser fileChooser = new JFileChooser();
-        Image miImagen = null;
-        int response = fileChooser.showOpenDialog(null);
-        if(response == JFileChooser.APPROVE_OPTION){
-            File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
-            System.out.println(file);
-            if (file != null) {
-            Image image = new Image("file:" + file);
-            this.imagen.setImage(image);
-        }
-        }
-        
-        
-        this.imagen.setImage(miImagen);
+        // Agregar filtros para facilitar la busqueda
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+        );
+
         // Obtener la imagen seleccionada
-        File imgFile = fileChooser.showOpenDialog();
+        File imgFile = fileChooser.showOpenDialog(null);
 
         // Mostar la imagen
         if (imgFile != null) {
             Image image = new Image("file:" + imgFile.getAbsolutePath());
-            imagen.setImage(image);
+            this.rutaImagen = imgFile.getAbsolutePath();
+            System.out.println(imgFile.getAbsolutePath());
+            this.rutaImagen = imgFile.getAbsolutePath();
+            this.imagen.setImage(image);
         }
-    }*/
+    }
+
+    @FXML
+    private void validarPlaca(KeyEvent event) {
+
+        char c = event.getCharacter().charAt(0);
+        int codigoAsci = (int) (c);
+        if (event.getSource() == this.tfPlaca) {
+            if (!(Character.isDigit(c) || c == java.awt.event.KeyEvent.VK_BACK_SPACE || Character.isAlphabetic(c) || c == java.awt.event.KeyEvent.VK_SPACE)) {
+                this.ajustaCadena(1, this.tfPlaca.getText(), Character.toString(c));
+            }
+
+        }
+
+    }
+
+    private void ajustaCadena(int caso, String cadena, String caracter) {
+        int len;
+        len = cadena.length();
+        if (len > 0) {
+
+            for (char c : caracter.toCharArray()) {
+                cadena = cadena.replace(String.valueOf(c), "");
+            }
+            switch (caso) {
+                case 1:
+                    this.tfPlaca.setText(cadena);
+                    this.tfPlaca.positionCaret(len - 1);
+                    break;
+                case 2:
+                    this.tfAlquiler.setText(cadena);
+                    this.tfAlquiler.positionCaret(len - 1);
+            }
+
+        }
+
+    }
+
+    @FXML
+    private void validarAlquiler(KeyEvent event) {
+        char c = event.getCharacter().charAt(0);
+        int codigoAsci = (int) (c);
+        if (event.getSource() == this.tfAlquiler) {
+            if (!(Character.isDigit(c) || c == java.awt.event.KeyEvent.VK_BACK_SPACE)) {
+                this.ajustaCadena(2, this.tfAlquiler.getText(), Character.toString(c));
+            }
+
+        }
+
+    }
+
+    private boolean verificarValidaciones() {
+        boolean hayError = false;
+        //System.out.println(this.tfPlaca.getText().matches("[A-Z]{3}[ ][0-9]{3}") + " ACAAAAAAAAA");
+
+        if (this.tfAlquiler.getText().isEmpty()) {
+            hayError = true;
+            this.tfAlquiler.requestFocus();
+        }
+
+        if (this.cbColor.getValue() == null) {
+            this.cbColor.requestFocus();
+            hayError = true;
+        }
+        if (this.cbModelo.getValue() == null) {
+            this.cbModelo.requestFocus();
+            hayError = true;
+        }
+        if (this.cbLinea.getValue() == null) {
+            this.cbLinea.requestFocus();
+            hayError = true;
+
+        }
+
+        if (this.cbMarca.getValue() == null) {
+            this.cbMarca.requestFocus();
+            hayError = true;
+        }
+
+        if (!this.tfPlaca.getText().matches("[A-Z]{3}[ ][0-9]{3}")) {
+            hayError = true;
+            this.tfPlaca.requestFocus();
+        }
+
+        System.out.println(this.tfAlquiler.getText().isEmpty() + "vacio");
+
+        return hayError;
+    }
 }

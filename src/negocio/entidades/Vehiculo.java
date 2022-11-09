@@ -9,8 +9,9 @@ public class Vehiculo {
     private String linea;
     private String valorAlquiler;
     private String estaAlquilado;
+    private String imagen;
 
-    public Vehiculo(String placa, String marca, String linea, String modelo, String color, String valorAlquiler, String estaAlquilado) {
+    public Vehiculo(String placa, String marca, String linea, String modelo, String color, String valorAlquiler, String estaAlquilado, String imagen) {
         this.placa = placa;
         this.marca = marca;
         this.linea = linea;
@@ -18,6 +19,11 @@ public class Vehiculo {
         this.color = color;
         this.valorAlquiler = valorAlquiler;
         this.estaAlquilado = estaAlquilado;
+        this.imagen = imagen;
+    }
+    
+    public Vehiculo(){
+        
     }
     
     
@@ -77,6 +83,16 @@ public class Vehiculo {
         this.estaAlquilado = estaAlquilado;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+    
+    
+
     @Override
     public String toString() {
         return this.placa+ '/' +
@@ -85,7 +101,8 @@ public class Vehiculo {
                 this.modelo + '/' +
                 this.color + '/' +
                 this.valorAlquiler + '/' +
-                this.estaAlquilado;
+                this.estaAlquilado + '/' +
+                this.imagen;
     }
         
 }

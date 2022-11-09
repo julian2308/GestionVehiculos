@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="202.0" prefWidth="412.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="controladores.TodosClientesController">
+    <children>
+        <TableView fx:id="tablaClientes" layoutX="1.0" prefHeight="200.0" prefWidth="412.0">
+            <columns>
+                <TableColumn fx:id="cedula" prefWidth="75.0" text="Cedula" />
+                <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+                <TableColumn fx:id="apellido" prefWidth="75.0" text="Apellido" />
+                <TableColumn fx:id="telefono" prefWidth="75.0" text="Teléfono" />
+                <TableColumn fx:id="email" prefWidth="106.0" text="Email" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

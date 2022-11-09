@@ -5,17 +5,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.CarrosController">
-   <children>
-      <Button layoutX="47.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Crear" />
-      <Button layoutX="47.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Editar" />
-      <Button layoutX="341.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Buscar" />
-      <Button layoutX="341.0" layoutY="296.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Buscar todos" />
-      <Button layoutX="47.0" layoutY="296.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="205.0" text="Borrar" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="341.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../archivos/interfaz/default3.png" />
-         </image>
-      </ImageView>
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.MotosController">
+    
+    <children>
+        <Button fx:id="btnCrear" layoutX="47.0" layoutY="100.0" mnemonicParsing="false" onAction="#irCrear" prefHeight="25.0" prefWidth="205.0" text="Crear" />
+        <Button fx:id="btnEditar" layoutX="47.0" layoutY="188.0" mnemonicParsing="false" onAction="#editarMoto" prefHeight="25.0" prefWidth="205.0" text="Editar" />
+        <Button fx:id="btnBuscar" layoutX="341.0" layoutY="100.0" mnemonicParsing="false" onAction="#buscar" prefHeight="25.0" prefWidth="205.0" text="Buscar" />
+        <Button layoutX="341.0" layoutY="188.0" mnemonicParsing="false" onAction="#irBuscarTodos" prefHeight="25.0" prefWidth="205.0" text="Buscar todos" />
+        <Button fx:id="btnBorrar" layoutX="47.0" layoutY="296.0" mnemonicParsing="false" onAction="#borrarMoto" prefHeight="25.0" prefWidth="205.0" text="Borrar" />
+        <ImageView fitHeight="101.0" fitWidth="112.0" layoutX="250.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../archivos/interfaz/benelli-251s-verde-2022-foto1.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnVolver" layoutX="341.0" layoutY="296.0" mnemonicParsing="false" onAction="#volverInicio" prefHeight="25.0" prefWidth="205.0" text="Volver" />
+    </children>
 </AnchorPane>

@@ -41,6 +41,8 @@ public class CarrosController implements Initializable {
     private Button btnBorrar;
     @FXML
     private Button btnEditar;
+    @FXML
+    private Button btnBuscar;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -130,6 +132,9 @@ public class CarrosController implements Initializable {
                 controlador.carroExistente(miCarro);
                 
                 stage.showAndWait();
+                
+                Stage stage1 = (Stage) this.btnBuscar.getScene().getWindow();
+                stage1.close();
 
             } catch (IOException ex) {
                 System.out.println("IO Exception: " + ex.getMessage());
@@ -202,6 +207,9 @@ public class CarrosController implements Initializable {
                 
                 stage.showAndWait();
 
+                
+                Stage stage1 = (Stage) this.btnEditar.getScene().getWindow();
+                stage1.close();
             } catch (IOException ex) {
                 System.out.println("IO Exception: " + ex.getMessage());
             }

@@ -1,7 +1,7 @@
-Kia/Chivou/Gonochofla/Sapo
-Batam/Robin/Sapo/Resa
-Vlda/Lol/Ashe/Robin
-Mercedes/A200/AMG/Melo
+Suzuki/Chivou/Gonochofla/Sapo
+Ducati/Robin/Sapo/Resa
+AKT/Lol/Ashe/Robin
+Yamaha/A200/AMG/Melo
 BMW/fdsfds/Pepe/Andres
 BMW/Chivor/Pepe/Andres
 RATON/Chivor/Pepe/Andres

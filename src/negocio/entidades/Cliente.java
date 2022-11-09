@@ -68,8 +68,13 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [apellido=" + apellido + ", cedula=" + cedula + ", email=" + email + ", foto=" + foto
-                + ", nombre=" + nombre + ", telefono=" + telefono + "]";
+        return this.cedula+ '/' +
+                this.nombre + '/' +
+                this.apellido + '/' +
+                this.telefono + '/' +
+                this.email + '/' +
+                this.foto;
+
     }
    
 }

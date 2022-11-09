@@ -9,7 +9,7 @@
    <children>
       <Button fx:id="btnCrear" layoutX="47.0" layoutY="100.0" mnemonicParsing="false" onAction="#irCrear" prefHeight="25.0" prefWidth="205.0" text="Crear" />
       <Button fx:id="btnEditar" layoutX="47.0" layoutY="188.0" mnemonicParsing="false" onAction="#editarCarro" prefHeight="25.0" prefWidth="205.0" text="Editar" />
-      <Button layoutX="341.0" layoutY="100.0" mnemonicParsing="false" onAction="#buscar" prefHeight="25.0" prefWidth="205.0" text="Buscar" />
+      <Button fx:id="btnBuscar" layoutX="341.0" layoutY="100.0" mnemonicParsing="false" onAction="#buscar" prefHeight="25.0" prefWidth="205.0" text="Buscar" />
       <Button layoutX="341.0" layoutY="188.0" mnemonicParsing="false" onAction="#irBuscarTodos" prefHeight="25.0" prefWidth="205.0" text="Buscar todos" />
       <Button fx:id="btnBorrar" layoutX="47.0" layoutY="296.0" mnemonicParsing="false" onAction="#borrarCarro" prefHeight="25.0" prefWidth="205.0" text="Borrar" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">

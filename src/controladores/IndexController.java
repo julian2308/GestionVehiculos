@@ -29,6 +29,14 @@ public class IndexController implements Initializable {
     private MenuItem carrosMenu;
     @FXML
     private Button btnGestionCarros;
+    @FXML
+    private Button btnGestionMotos;
+    @FXML
+    private Button btnGestionClientes;
+    @FXML
+    private Button btnAlquilerCarros;
+    @FXML
+    private Button btnAlquilerMotos;
 
     /**
      * Initializes the controller class.
@@ -56,6 +64,97 @@ public class IndexController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void gestionMotos(ActionEvent event) {
+
+        System.out.println("llegamos a motos");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/motos.fxml"));
+            Parent root = loader.load();
+            MotosController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnGestionMotos.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private void gestionClientes(ActionEvent event) {
+
+        System.out.println("llegamos a clientes");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/clientes.fxml"));
+            Parent root = loader.load();
+            ClientesController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnGestionClientes.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(IndexController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private void irTodosCarros(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/todosCarros.fxml"));
+            Parent root = loader.load();
+            TodosCarrosController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnAlquilerCarros.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(TodosCarrosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private void alquilerMotos(ActionEvent event) {
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/vista/todosMotos.fxml"));
+            Parent root = loader.load();
+            TodosMotosController controller = loader.getController();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            //stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.show();
+
+            Stage stage1 = (Stage) this.btnAlquilerMotos.getScene().getWindow();
+            stage1.close();
+
+        } catch (IOException ex) {
+            Logger.getLogger(TodosCarrosController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

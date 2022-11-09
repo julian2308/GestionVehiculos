@@ -8,6 +8,9 @@ public class Carro extends Vehiculo{
         
     }
 
+    public Carro(){
+    
+    }
   
     
     
