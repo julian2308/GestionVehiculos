@@ -1,2 +1,4 @@
 AKT 754/Ducati/Sapo/2018/Azul/400000/Si/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesMotos\Defaultjpg.jpg
 KLS 789/Suzuki/Gixxer/2021/Rojo/450000/Si/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesMotos\DUCATI.png
+YOP 123/Ducati/Multistrada/2018/Azul/150000/Si/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesMotos\DUCATI.png
+AAA 854/AKT/TTR 125/2018/Azul/500000/No/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesMotos\SUZUKI.jpg

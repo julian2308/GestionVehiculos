@@ -1,2 +1,3 @@
 1000709172/Julian David/Alvarado/3165673614/test@unisabana.edu/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\Default.png
 1100205/Manuel Eduardo/Gantiva/3165673698/manuel@esc.com/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\MorganFreeman.jpg
+8797651/Juam David/Perez/3165673614/juanAlvarado@gmail.com/D:\NetBeansProjects\AdminVehiculos\src\archivos\imagenesClientes\CR7.jpg

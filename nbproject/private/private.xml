@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/gestores/GestorCarros.java</file>
             <file>file:/D:/NetBeansProjects/AdminVehiculos/src/negocio/entidades/Vehiculo.java</file>
-            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/negocio/entidades/Marca.java</file>
-            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/controladores/CarrosController.java</file>
+            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/gestores/GestorCarros.java</file>
+            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/controladores/MotosController.java</file>
             <file>file:/D:/NetBeansProjects/AdminVehiculos/src/negocio/entidades/Carro.java</file>
-            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/controladores/IndexController.java</file>
             <file>file:/D:/NetBeansProjects/AdminVehiculos/src/controladores/CarrosNuevoController.java</file>
-            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/gestores/GestorMarcas.java</file>
+            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/controladores/IndexController.java</file>
+            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/vista/Start.java</file>
+            <file>file:/D:/NetBeansProjects/AdminVehiculos/src/vista/index.fxml</file>
         </group>
     </open-files>
 </project-private>
